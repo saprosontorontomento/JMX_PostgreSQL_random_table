@@ -1,6 +1,6 @@
 # JMX_PostgreSQL_random_table
 
-1 таблица:
+# 1 таблица:
 id, first_name, last_name, email
 
 code:
@@ -12,7 +12,7 @@ INSERT INTO info_user VALUES ('${__counter(FALSE,)}',
 
 
 
-2 таблица:
+# 2 таблица:
 id, id_2_table, first_name, last_name, passport_data, phone
 
 
@@ -27,7 +27,7 @@ INSERT INTO info_pass VALUES ('${__counter(FALSE,)}',
 
 
 
-3 таблица:
+# 3 таблица:
 id,  login, password, email, creation_date, id_2_table, id_3_table
 
 code:
