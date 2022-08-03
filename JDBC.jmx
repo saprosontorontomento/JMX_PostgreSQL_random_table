@@ -34,10 +34,10 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">5</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">2</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -46,8 +46,7 @@
       <hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request Table 1" enabled="true">
           <stringProp name="dataSource">Postgrespool</stringProp>
-          <stringProp name="query">INSERT INTO info_user VALUES (&apos;${__counter(FALSE,)}&apos;, 
-&apos;${__RandomString(4,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
+          <stringProp name="query">INSERT INTO info_user (first_name,last_name,email) VALUES (&apos;${__RandomString(4,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
 &apos;${__RandomString(7,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
 &apos;${__RandomString(${__Random(3,9,)},abcdefghijklmnopqrstuvwxyz,)}@${__RandomString(${__Random(2,3,)},abcdefghijklmnopqrstuvwxyz,)}.${__RandomString(${__Random(2,3,)},abcdefghijklmnopqrstuvwxyz,)}&apos;);
 </stringProp>
@@ -63,9 +62,7 @@
         <hashTree/>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request Table 2" enabled="true">
           <stringProp name="dataSource">Postgrespool</stringProp>
-          <stringProp name="query">INSERT INTO info_pass VALUES (&apos;${__counter(FALSE,)}&apos;, 
-&apos;${__counter(FALSE,)}&apos;, 
-&apos;${__RandomString(4,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
+          <stringProp name="query">INSERT INTO info_pass (first_name,last_name,pass_num,phone)  VALUES (&apos;${__RandomString(4,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
 &apos;${__RandomString(7,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
 &apos;${__RandomString(4,012345689,)} ${__RandomString(6,012345689,)}&apos;, 
 &apos;89${__RandomString(9,012345689,)}&apos;);
@@ -82,13 +79,10 @@
         <hashTree/>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request Table 3" enabled="true">
           <stringProp name="dataSource">Postgrespool</stringProp>
-          <stringProp name="query">INSERT INTO info_acc VALUES (&apos;${__counter(FALSE,)}&apos;, 
-&apos;${__RandomString(10,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
+          <stringProp name="query">INSERT INTO info_acc (login,password,email,creation_date) VALUES (&apos;${__RandomString(10,abcdefghijklmnopqrstuvwxyz,)}&apos;, 
 &apos;${__RandomString(10,abcdefghijklmnopqrstuvwxyz0123456789,)}&apos;, 
 &apos;${__RandomString(${__Random(3,9,)},abcdefghijklmnopqrstuvwxyz,)}@${__RandomString(${__Random(2,3,)},abcdefghijklmnopqrstuvwxyz,)}.${__RandomString(${__Random(2,3,)},abcdefghijklmnopqrstuvwxyz,)}&apos;,
-&apos;${__timeShift(yyyy/MM/dd,,,,)}&apos;,
-&apos;${__counter(FALSE,)}&apos;, 
-&apos;${__counter(FALSE,)}&apos;);
+&apos;${__timeShift(yyyy/MM/dd,,,,)}&apos;);
 </stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
